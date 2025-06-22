@@ -18,12 +18,12 @@ A modular NestJS backend app for managing users, documents, and ingestion proces
 
 ## 📦 Tech Stack
 
-- **NestJS** + **TypeORM**
+- **NestJS\*- + **TypeORM\*\*
 - **PostgreSQL**
-- **JWT** Auth via `passport`
+- \*_JWT_- Auth via `passport`
 - **Docker + Docker Compose**
-- **Jest + Supertest** for Testing
-- **Swagger** for API Docs
+- \*_Jest + Supertest_- for Testing
+- \*_Swagger_- for API Docs
 
 ---
 
@@ -45,10 +45,12 @@ DB_NAME=document_manager
 JWT_SECRET=supersecretkey
 JWT_EXPIRES_IN=1d
 
+---
 
 ## 🐳 Dockerized Setup
 
 # Build and run all services
+
 ```
 
 docker-compose up --build
@@ -58,6 +60,7 @@ docker-compose up --build
 ```
 docker-compose down
 
+---
 
 ## 🧪 Running Tests
 
@@ -73,8 +76,9 @@ npm run test\:cov
 
 npm run test\:e2e
 
+---
 
-📂 Folder Structure
+## 📂 Folder Structure
 
 src/
 ├── modules/
@@ -93,30 +97,29 @@ src/
 ├── main.ts
 └── app.module.ts
 
+---
 
-# 🔐 Authentication
+## 🔐 Authentication
 
-* Use /auth/register and /auth/login to get a JWT.
+- Use /auth/register and /auth/login to get a JWT.
 
-* Add Bearer <token> in Swagger Authorize or Postman headers.
+- Add Bearer <token> in Swagger Authorize or Postman headers.
 
 # ✍️ API Endpoints Overview
 
-* POST /auth/register – Register user
+- POST /auth/register – Register user
 
-* POST /auth/login – Login user
+- POST /auth/login – Login user
 
-* GET /admin/users – Admin: List users
+- GET /admin/users – Admin: List users
 
-* POST /documents – Upload document
+- POST /documents – Upload document
 
-* GET /documents – List documents
+- GET /documents – List documents
 
-* POST /ingestion/trigger – Trigger ingestion
+- POST /ingestion/trigger – Trigger ingestion
 
-* GET /ingestion/status/:id – Check ingestion status
-
-
+- GET /ingestion/status/:id – Check ingestion status
 
 ---
 
@@ -130,7 +133,5 @@ src/
 | Test Instructions  | ✅ Done  |
 
 ---
-
-
 
 ```
