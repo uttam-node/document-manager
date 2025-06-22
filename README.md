@@ -31,7 +31,7 @@ A modular NestJS backend app for managing users, documents, and ingestion proces
 
 Create a `.env` file:
 
-```env
+````env
 PORT=3000
 
 # DB
@@ -49,8 +49,7 @@ JWT_EXPIRES_IN=1d
 
 ## 🐳 Dockerized Setup
 
-bash
-```
+```bash
 
 # Build and run all services
 
@@ -60,12 +59,13 @@ docker-compose up --build
 
 docker-compose down
 
-```
+````
 
 ---
 
 ## 🧪 Running Tests
 
+```bash
 # Run all unit tests
 
 npm run test
@@ -78,23 +78,25 @@ npm run test\:cov
 
 npm run test\:e2e
 
+```
+
 ---
 
 ## 📂 Folder Structure
 
 src/
 ├── modules/
-│   ├── auth/
-│   ├── users/
-│   ├── documents/
-│   └── ingestion/
+│ ├── auth/
+│ ├── users/
+│ ├── documents/
+│ └── ingestion/
 ├── database/
-│   ├── entities/
-│   └── seed/
+│ ├── entities/
+│ └── seed/
 ├── common/
-│   ├── guards/
-│   ├── decorators/
-│   └── enums.ts
+│ ├── guards/
+│ ├── decorators/
+│ └── enums.ts
 ├── config/
 ├── main.ts
 └── app.module.ts
@@ -127,13 +129,15 @@ src/
 
 ## ✅ Summary
 
-| Component          | Status   |
-|--------------------|----------|
-| Swagger Setup      | ✅ Done  |
-| README.md          | ✅ Done  |
-| Docker Support     | ✅ Done  |
-| Test Instructions  | ✅ Done  |
+| Component         | Status  |
+| ----------------- | ------- |
+| Swagger Setup     | ✅ Done |
+| README.md         | ✅ Done |
+| Docker Support    | ✅ Done |
+| Test Instructions | ✅ Done |
 
 ---
+
+```
 
 ```
