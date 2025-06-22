@@ -1,4 +1,3 @@
-// src/modules/documents/documents.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Document } from 'src/database/entities/document.entity';

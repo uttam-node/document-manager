@@ -1,4 +1,3 @@
-// src/modules/ingestion/ingestion.controller.ts
 import { Controller, Get, Param, Post, Req, UseGuards } from '@nestjs/common';
 import { IngestionService } from './ingestion.service';
 import { AuthGuard } from '@nestjs/passport';

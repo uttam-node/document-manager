@@ -45,6 +45,8 @@ DB_NAME=document_manager
 JWT_SECRET=supersecretkey
 JWT_EXPIRES_IN=1d
 
+```
+
 ---
 
 ## 🐳 Dockerized Setup
@@ -60,6 +62,10 @@ docker-compose up --build
 docker-compose down
 
 ````
+
+- NestJS: http://localhost:3000
+- Swagger: http://localhost:3000/api/doc
+- PostgreSQL: on port 5432
 
 ---
 
@@ -84,6 +90,7 @@ npm run test\:e2e
 
 ## 📂 Folder Structure
 
+```bash
 src/
 ├── modules/
 │ ├── auth/
@@ -100,6 +107,7 @@ src/
 ├── config/
 ├── main.ts
 └── app.module.ts
+```
 
 ---
 
@@ -137,7 +145,3 @@ src/
 | Test Instructions | ✅ Done |
 
 ---
-
-```
-
-```

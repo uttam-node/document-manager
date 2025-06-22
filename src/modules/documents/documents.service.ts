@@ -1,4 +1,3 @@
-// src/modules/documents/documents.service.ts
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Document } from 'src/database/entities/document.entity';

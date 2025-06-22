@@ -1,4 +1,3 @@
-// src/modules/documents/dto/update-document.dto.ts
 import { IsOptional, IsString } from 'class-validator';
 
 export class UpdateDocumentDto {

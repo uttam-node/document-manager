@@ -1,4 +1,3 @@
-// src/modules/documents/documents.controller.ts
 import {
   Controller,
   Post,
