@@ -49,16 +49,18 @@ JWT_EXPIRES_IN=1d
 
 ## 🐳 Dockerized Setup
 
-# Build and run all services
-
+bash
 ```
+
+# Build and run all services
 
 docker-compose up --build
 
 # Stop containers
 
-```
 docker-compose down
+
+```
 
 ---
 
