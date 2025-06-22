@@ -18,13 +18,14 @@ import { UpdateDocumentDto } from './dto/update-document.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiBody, ApiConsumes } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiBody, ApiConsumes, ApiQuery } from '@nestjs/swagger';
 
 @Controller('documents')
 @UseGuards(AuthGuard('jwt'))
 export class DocumentsController {
   constructor(private readonly docService: DocumentsService) {}
 
+  @ApiBearerAuth()
   @Post()
   @ApiConsumes('multipart/form-data')
   @ApiBody({
@@ -57,6 +58,7 @@ export class DocumentsController {
     return this.docService.create(dto, file.path);
   }
 
+  @ApiBearerAuth()
   @Get()
   findAll(
     @Query('search') search: string,
@@ -66,11 +68,13 @@ export class DocumentsController {
     return this.docService.findAll(search, +page, +limit);
   }
 
+  @ApiBearerAuth()
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.docService.findOne(id);
   }
 
+  @ApiBearerAuth()
   @Put(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
@@ -79,6 +83,7 @@ export class DocumentsController {
     return this.docService.update(id, dto);
   }
 
+  @ApiBearerAuth()
   @Delete(':id')
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.docService.remove(id);

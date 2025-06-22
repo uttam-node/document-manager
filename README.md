@@ -69,6 +69,19 @@ docker-compose down
 
 ---
 
+## Seed
+
+```bash
+# for users
+npm run seed
+
+# for documents
+npm run seed:documents
+
+```
+
+---
+
 ## 🧪 Running Tests
 
 ```bash

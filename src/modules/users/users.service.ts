@@ -38,7 +38,7 @@ export class UsersService {
       });
     }
 
-    return query
+    return query   
       .skip((page - 1) * limit)
       .take(limit)
       .orderBy('user.createdAt', 'DESC')
