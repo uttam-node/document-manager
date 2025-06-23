@@ -1,18 +1,30 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { IngestionController } from './ingestion.controller';
 import { IngestionService } from './ingestion.service';
 
-describe('IngestionService', () => {
-  let service: IngestionService;
+describe('IngestionController', () => {
+  let controller: IngestionController;
+
+  const mockService = {
+    triggerIngestion: jest.fn().mockResolvedValue({ jobId: '123' }),
+    getStatus: jest.fn().mockReturnValue({ status: 'COMPLETED' }),
+  };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      providers: [IngestionService],
+      controllers: [IngestionController],
+      providers: [
+        {
+          provide: IngestionService,
+          useValue: mockService,
+        },
+      ],
     }).compile();
 
-    service = module.get<IngestionService>(IngestionService);
+    controller = module.get<IngestionController>(IngestionController);
   });
 
   it('should be defined', () => {
-    expect(service).toBeDefined();
+    expect(controller).toBeDefined();
   });
 });

@@ -30,11 +30,13 @@ export class IngestionService {
     this.jobs.set(jobId, job);
 
     // Simulate delay (5 sec)
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       job.status = IngestionStatus.COMPLETED;
       job.completedAt = new Date();
       this.jobs.set(jobId, job);
     }, 5000);
+
+    timeout.unref(); 
   }
 
   getStatus(jobId: string) {

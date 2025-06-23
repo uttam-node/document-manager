@@ -11,7 +11,7 @@ export class RegisterDto {
   @MinLength(6)
   password: string;
 
-  @ApiProperty({ example: 'viewer' })
+  @ApiProperty({ example: Role.VIEWER })
   @IsEnum(Role)
-  role: Role;
+  role: string;
 }
