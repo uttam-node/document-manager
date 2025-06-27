@@ -7,7 +7,9 @@ import { UpdateDocumentDto } from './dto/update-document.dto';
 
 @Injectable()
 export class DocumentsService {
-  constructor(@InjectRepository(Document) private docRepo: Repository<Document>) {}
+  constructor(
+    @InjectRepository(Document) private docRepo: Repository<Document>,
+  ) {}
 
   async create(dto: CreateDocumentDto, filePath: string) {
     const document = this.docRepo.create({ ...dto, filePath });
@@ -36,7 +38,10 @@ export class DocumentsService {
     return this.docRepo.save(doc);
   }
 
-  async remove(id: number) {
-    await this.docRepo.delete(id);
+  async remove(id: number): Promise<void> {
+    const doc = await this.docRepo.findOneBy({ id });
+    if (!doc) throw new NotFoundException('Document not found');
+
+    await this.docRepo.remove(doc);
   }
 }

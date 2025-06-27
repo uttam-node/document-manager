@@ -18,10 +18,20 @@ import { UpdateDocumentDto } from './dto/update-document.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { AuthGuard } from '@nestjs/passport';
-import { ApiBearerAuth, ApiBody, ApiConsumes, ApiQuery } from '@nestjs/swagger';
+import {
+  ApiBearerAuth,
+  ApiBody,
+  ApiConsumes,
+  ApiOperation,
+  ApiQuery,
+  ApiResponse,
+} from '@nestjs/swagger';
+import { Role } from 'src/common/enums/role.enum';
+import { Roles } from 'src/common/decorators/roles.decorator';
+import { RolesGuard } from 'src/common/guards/roles.guard';
 
 @Controller('documents')
-@UseGuards(AuthGuard('jwt'))
+@UseGuards(AuthGuard('jwt'), RolesGuard)
 export class DocumentsController {
   constructor(private readonly docService: DocumentsService) {}
 
@@ -84,7 +94,11 @@ export class DocumentsController {
   }
 
   @ApiBearerAuth()
+  @ApiOperation({ summary: 'Delete a document by ID (admin/editor only)' })
+  @ApiResponse({ status: 200, description: 'Document deleted' })
+  @ApiResponse({ status: 404, description: 'Not found' })
   @Delete(':id')
+  @Roles(Role.ADMIN, Role.EDITOR) // ✅ Only admin/editor can delete
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.docService.remove(id);
   }

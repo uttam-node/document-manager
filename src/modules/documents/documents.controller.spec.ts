@@ -58,6 +58,7 @@ describe('DocumentsController', () => {
   });
 
   it('should delete document', async () => {
+    jest.spyOn(service, 'remove').mockResolvedValue(undefined);
     const result = await controller.remove(1);
     expect(result).toBeUndefined();
   });
